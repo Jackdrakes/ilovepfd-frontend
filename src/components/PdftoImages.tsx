@@ -56,6 +56,7 @@ const PdftoImagesPage = () => {
       link.remove();
       window.URL.revokeObjectURL(url);
     } catch (err) {
+      console.log(err)
       setError('Failed to convert PDF. Please try again.');
     } finally {
       setLoading(false);
