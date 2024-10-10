@@ -27,7 +27,7 @@ const PdftoImagesPage = () => {
     try {
       const formData = new FormData();
       formData.append('file', file);
-      // console.log('hostname---', process.env.API_HOSTNAME)
+      console.log('hostname---', process.env.API_HOSTNAME)
 
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/convert/pdf2image`, {
         method: 'POST',
