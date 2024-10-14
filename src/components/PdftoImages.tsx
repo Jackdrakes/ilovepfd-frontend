@@ -64,49 +64,51 @@ const PdftoImagesPage = () => {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-600 to-blue-500 flex flex-col items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden">
-        <div className="p-8">
-          <h1 className="text-4xl font-bold text-center text-gray-800 mb-6">
-            PDF to Image Converter
-          </h1>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="relative">
-              <input
-                type="file"
-                onChange={handleFileChange}
-                accept=".pdf"
-                className="w-full px-4 py-3 rounded-lg text-zinc-600 border-2 border-gray-300 focus:outline-none focus:border-purple-500 transition duration-300"
-                required
-              />
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+    <div className="flex flex-col">
+      <main className="flex-grow min-h-screen bg-gradient-to-br from-purple-600 to-blue-500 flex flex-col items-center justify-center p-4">
+        <div className="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div className="p-8">
+            <h1 className="text-4xl font-bold text-center text-gray-800 mb-6">
+              PDF to Image Converter
+            </h1>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="relative">
+                <input
+                  type="file"
+                  onChange={handleFileChange}
+                  accept=".pdf"
+                  className="w-full px-4 py-3 rounded-lg text-zinc-600 border-2 border-gray-300 focus:outline-none focus:border-purple-500 transition duration-300"
+                  required
+                />
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                  <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
               </div>
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition duration-300 ease-in-out transform hover:scale-105"
-              disabled={loading}
-            >
-              {loading ? 'Converting...' : 'Convert PDF to Images'}
-            </button>
-          </form>
-          {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
-          {images.length > 0 && (
-            <div className="flex justify-center mt-6">
-              {images.map((image, index) => (
-                <Image src={image} alt={`Image ${index + 1}`} width={100} height={100} key={index} />
-              ))}
-            </div>
-          )}
+              <button
+                type="submit"
+                className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition duration-300 ease-in-out transform hover:scale-105"
+                disabled={loading}
+              >
+                {loading ? 'Converting...' : 'Convert PDF to Images'}
+              </button>
+            </form>
+            {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
+            {images.length > 0 && (
+              <div className="flex justify-center mt-6">
+                {images.map((image, index) => (
+                  <Image src={image} alt={`Image ${index + 1}`} width={100} height={100} key={index} />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
-      <footer className="mt-8 text-center text-white">
-        <p>&copy; 2023 PDF to Image Converter. All rights reserved.</p>
-      </footer>
-    </main>
+        {/* <footer className="mt-8 text-center text-white">
+          <p>&copy; 2023 PDF to Image Converter. All rights reserved.</p>
+        </footer> */}
+      </main>
+    </div>
   );
 }
 
